@@ -1,0 +1,5 @@
+\documentclass{article}
+
+\begin{document}
+While Python does not natively allow the user to access pointers, this problem is easy to solve by thinking using pointers. In Program 1, variable $a$ is initially set to 7. Then, variable $b$ is set to variable $a$, aka it has the same pointer value as variable $a$. It now contains the number $7$ which is an  However, when the statement $a+1$ is processed, it sets $a$ to the new integer of $8$. Thus, when both variables are printed, they will have different values. On the other hand, in Program 2, variable $a$ is set to a list. When $b$ is set to $a$, $b$ is set to the same list and will have the same pointer to the list as $a$. The append method does not actually create a new list. It simply changes the current list the pointer is pointing to. Thus, the statement $append(9)$ changes the list that both $a$ and $b$ points to. Thus, when printing both variables, they would print the same thing. 
+\end{document}
