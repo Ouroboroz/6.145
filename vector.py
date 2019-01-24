@@ -26,7 +26,7 @@ class Vector:
 		total = 0
 		for i in range(len(self.vec)):
 			total += self.vec[i]*other.as_list()[i]
-		return math.acos(total/(self.magnitude()*other.magnitude()))
+		return total/(self.magnitude()*other.magnitude())
 	def __add__(self,other):
 		if not isinstance(other,Vector):
 			return None
@@ -50,17 +50,20 @@ class Vector:
 		if isinstance(other,int) or isinstance(other,float):
 			for i in self.vec:
 				vec.append(i*other)
+			return Vector(vec)
 		elif isinstance(other,Vector):
 			if self.size() != other.size():
 				return None
-			vec = []
+			tot = 0
 			for i in range(len(self.vec)):
-				vec.append(self.vec[i]*other.as_list()[i])
+				tot += self.vec[i]*other.as_list()[i]
+			return tot
 		else:
 			return None
-		return Vector(vec)
 	def __truediv__(self,other):
 		if isinstance(other,int) or isinstance(other,float):
+			if(other == 0):
+				return None
 			vec = []
 			for i in self.vec:
 				vec.append(i/other)
